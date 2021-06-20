@@ -8,12 +8,12 @@ months = [i.lower() for i in months]
 
 def monthly_challenges(request, month):
     if month in months:
-        return HttpResponse(f'you are at {month} month.')
+        return HttpResponse(f'<h1 align="center">you are at {month} month.</h1>')
     else:
-        return HttpResponseNotFound(f'{month} is not a month')
+        return HttpResponseNotFound(f'<h1 align="center">{month} is not a month</h1>')
 
 def monthly_challenges_by_number(request, month):
     try: 
         months[month - 1]
         return HttpResponseRedirect(f'/challenges/{months[month-1]}')
-    except: return HttpResponseNotFound(f'There is no {month} number of month')
+    except: return HttpResponseNotFound(f'<h1 align="center">There is no {month} number of month</h1>')
